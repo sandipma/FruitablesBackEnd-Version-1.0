@@ -1,0 +1,967 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FruitStoreWebAPI</name>
+    </assembly>
+    <members>
+        <member name="T:FruitStoreWebAPI.Controllers.AboutUsController">
+            <summary>
+            Represents a class that handles about us related operations.
+            </summary>
+        </member>
+        <member name="M:FruitStoreWebAPI.Controllers.AboutUsController.#ctor(Microsoft.Extensions.Logging.ILogger{FruitStoreWebAPI.Controllers.AboutUsController},FruitStoreRepositories.Interfaces.IAboutUsRepository)">
+            <summary>
+            Represents a class that handles about us related operations.
+            </summary>
+        </member>
+        <member name="M:FruitStoreWebAPI.Controllers.AboutUsController.GetOverAllReview">
+            <summary>
+            Retrieves the overall review details for products.
+            </summary>
+            <remarks>
+            This endpoint retrieves the overall review details for products available in the system.
+            </remarks>
+            <returns>Returns a response containing the overall review details.</returns>
+            <response code="200">Returns a successful response along with the overall review details.</response>
+            <response code="500">Returns an Internal Server Error response if an unexpected error occurs.</response>
+            <example>
+            Sample request:
+            
+                GET /api/aboutUs/get-overall-review
+            
+            </example>
+        </member>
+        <member name="T:FruitStoreWebAPI.Controllers.AddressController">
+            <summary>
+            Represents a class that handles address related operations.
+            </summary>
+        </member>
+        <member name="M:FruitStoreWebAPI.Controllers.AddressController.#ctor(Microsoft.Extensions.Logging.ILogger{FruitStoreWebAPI.Controllers.AddressController},FruitStoreRepositories.Interfaces.IAddressDetailsReposiotry)">
+            <summary>
+            Represents a class that handles address related operations.
+            </summary>
+        </member>
+        <member name="M:FruitStoreWebAPI.Controllers.AddressController.GetAllAddressDetailsByUserId(System.Int32)">
+            <summary>
+            Retrieves details for all addresses by its ID.
+            </summary>
+            <remarks>
+            This endpoint retrieves details for all addresses by its ID available in the system.
+            </remarks>
+            <param name="userId">The ID of the address to delete.</param>
+            <returns>Returns a response containing details for all addresses by its ID.</returns>
+            <response code="200">Returns a successful response along with address details.</response>
+            <response code="400">Returns a bad request.</response>
+            <response code="404">Returns a Not Found response if no addresses are found.</response>
+            <response code="500">Returns an Internal Server Error response if an unexpected error occurs.</response>
+            <example>
+            Sample request:
+            
+                GET /api/address/get-all-addresses/{userId}
+            
+            </example>
+        </member>
+        <member name="M:FruitStoreWebAPI.Controllers.AddressController.CreateNewAddress(FruitStoreModels.Address.AddAddressDetails)">
+            <summary>
+            Creates a new address.
+            </summary>
+            <remarks>
+            This endpoint creates a new address with the provided details.
+            </remarks>
+            <param name="addaddressDetails">The details of the address to be created.</param>
+            <returns>Returns a response indicating the success or failure of the operation.</returns>
+            <response code="201">Returns a successful response when the address is created successfully.</response>
+            <response code="400">Returns a Bad Request response if any validation errors occur.</response>
+            <response code="500">Returns an Internal Server Error response if an unexpected error occurs.</response>
+            <example>
+            Sample request:
+            
+                POST /api/address/create-new-address
+                {
+                    "FirstName": "John",
+                    "LastName": "Doe",
+                    "StreetAddress": "123 Main St",
+                    "PostalCode": 12345,
+                    "City": "New York",
+                    "State": "NY",
+                    "PhoneNumber": "1234567890",
+                    "UserId": 123
+                }
+            
+            </example>
+        </member>
+        <member name="M:FruitStoreWebAPI.Controllers.AddressController.DeleteAddressById(System.Int32)">
+            <summary>
+            Deletes an address by its ID.
+            </summary>
+            <remarks>
+            This endpoint deletes an address with the specified ID.
+            </remarks>
+            <param name="addressId">The ID of the address to delete.</param>
+            <returns>Returns a response indicating the success or failure of the operation.</returns>
+            <response code="204">Returns a successful response when the address is deleted successfully.</response>
+            <response code="400">Returns a Bad Request response if the address ID is invalid.</response>
+            <response code="404">Returns a Not Found response if the address with the specified ID is not found.</response>
+            <response code="500">Returns an Internal Server Error response if an unexpected error occurs.</response>
+            <example>
+            Sample request:
+            
+                DELETE /api/address/delete-address/{addressId}
+            
+            </example>
+        </member>
+        <member name="M:FruitStoreWebAPI.Controllers.AddressController.UpdateAddressSelectionById(System.Int32,System.String)">
+            <summary>
+            Updates the selection status of an address by its ID.
+            </summary>
+            <remarks>
+            This endpoint updates the selection status of an address with the specified ID.
+            </remarks>
+            <param name="addressId">The ID of the address to update selection status for.</param>
+            <param name="isSelected">The new selection status to update.</param>
+            <returns>Returns a response indicating the result of the update operation.</returns>
+            <response code="200">Returns a successful response indicating that the address selection status has been updated successfully.</response>
+            <response code="400">Returns a Bad Request response if there are validation errors or if the provided data is invalid.</response>
+            <response code="500">Returns an Internal Server Error response if an unexpected error occurs.</response>
+            <example>
+            Sample request:
+            
+                PATCH /api/address/update-address-selection/{addressId}?isSelected=selected
+            
+            </example>
+        </member>
+        <member name="T:FruitStoreWebAPI.Controllers.AdminOrderController">
+            <summary>
+            Represents a class that handles admin orders related operations.
+            </summary>
+        </member>
+        <member name="M:FruitStoreWebAPI.Controllers.AdminOrderController.#ctor(Microsoft.Extensions.Logging.ILogger{FruitStoreWebAPI.Controllers.AdminOrderController},FruitStoreRepositories.Interfaces.IAdminOrderRepository)">
+            <summary>
+            Represents a class that handles admin orders screen operations.
+            </summary>
+        </member>
+        <member name="M:FruitStoreWebAPI.Controllers.AdminOrderController.GetAllOrders">
+            <summary>
+            Retrieves details for all orders.
+            </summary>
+            <remarks>
+            This endpoint retrieves details for all orders.
+            </remarks>
+            <returns>Returns a response containing details for all orders.</returns>
+            <response code="200">Returns a successful response along with order details.</response>
+            <response code="500">Returns an Internal Server Error response if an unexpected error occurs.</response>
+            <example>
+            Sample request:
+            
+                GET /api/adminorder/get-all-orders
+            
+            Sample response (200 - OK):
+            
+                {
+                    "statusCode": 200,
+                    "message": "Order details..",
+                    "data": [
+                        {
+                            "orderId": 1,
+                            "orderDate": "2024-05-15T10:30:00",
+                            "userId": 1,
+                            "totalAmount": 100.99,
+                            "status": "Completed"
+                        },
+                        {
+                            "orderId": 2,
+                            "orderDate": "2024-05-15T11:00:00",
+                            "userId": 2,
+                            "totalAmount": 50.49,
+                            "status": "Pending"
+                        }
+                    ]
+                }
+            </example>
+        </member>
+        <member name="T:FruitStoreWebAPI.Controllers.AuthenticaticationController">
+            <summary>
+            Represents a class that handles authentication operations.
+            </summary>
+        </member>
+        <member name="M:FruitStoreWebAPI.Controllers.AuthenticaticationController.#ctor(FruitStoreRepositories.Interfaces.IUserRepository,Microsoft.Extensions.Logging.ILogger{FruitStoreWebAPI.Controllers.AuthenticaticationController},FruitStoreRepositories.InterFaces.ITokenRepository,ExternalService.Interfaces.IJwtService)">
+            <summary>
+            Represents a class that handles authentication operations.
+            </summary>
+        </member>
+        <member name="M:FruitStoreWebAPI.Controllers.AuthenticaticationController.RegisterUser(FruitStoreModels.ApplicationUser.RegisterUser)">
+            <summary>
+            Registers a new user and creates a JWT token for authentication.
+            </summary>
+            <param name="registerUser">User registration details.</param>
+            <returns>Returns a response indicating the result of the registration process.</returns>
+            <response code="201">Returns a Created response if the registration is successful.</response>
+            <response code="400">Returns a Bad Request response if the provided registration details are invalid.</response>
+            <response code="409">Returns a Conflict response if there is a conflict with the provided user information.</response>
+            <response code="500">Returns an Internal Server Error response if an unexpected error occurs during registration.</response>
+            <example>
+            Sample request:
+            
+                POST /api/authenticatication/register-user
+                {
+                    "UserName": "exampleuser",
+                    "Email": "example@example.com",
+                    "UserPassword": "examplepassword",
+                    "UserRole": "User"
+                }
+            
+            </example>
+        </member>
+        <member name="M:FruitStoreWebAPI.Controllers.AuthenticaticationController.LoginUser(FruitStoreModels.ApplicationUser.LoginUser)">
+            <summary>
+            Logs in a user and generates a JWT token for authentication.
+            </summary>
+            <param name="user">User login credentials.</param>
+            <returns>Returns a response indicating the result of the login process.</returns>
+            <response code="200">Returns an OK response with the generated JWT token if the login is successful.</response>
+            <response code="400">Returns a Bad Request response if the provided credentials are invalid or missing.</response>
+            <response code="404">Returns a Not Found response if the user does not exist.</response>
+            <response code="500">Returns an Internal Server Error response if an unexpected error occurs during login.</response>
+            <example>
+            Sample request:
+            
+                POST /api/authenticatication/login-user
+                {
+                    "UserName": "exampleuser",
+                    "Password": "examplepassword"
+                }
+            
+            </example>
+        </member>
+        <member name="M:FruitStoreWebAPI.Controllers.AuthenticaticationController.GoogleLogin(FruitStoreModels.ApplicationUser.EmailData)">
+            <summary>
+            Logs in a user using Google authentication and generates a JWT token for authentication.
+            </summary>
+            <param name="mail">User login credentials with email.</param>
+            <returns>Returns a response indicating the result of the login process.</returns>
+            <response code="200">Returns an OK response with the generated JWT token if the login is successful.</response>
+            <response code="400">Returns a Bad Request response if the provided credentials are invalid.</response>
+            <response code="404">Returns a Not Found response if the user does not exist.</response>
+            <response code="500">Returns an Internal Server Error response if an unexpected error occurs during login.</response>
+            <example>
+            Sample request:
+            
+                POST /api/authenticatication/google-login
+                {
+                    "Email": "example@example.com"
+                }
+            
+            </example>    
+        </member>
+        <member name="M:FruitStoreWebAPI.Controllers.AuthenticaticationController.Logout(FruitStoreModels.ApplicationUser.EmailData)">
+             <summary>
+             Logs out a user by deleting their token details.
+             </summary>
+             <param name="mail">User email for logout.</param>
+             <returns>Returns a response indicating the result of the logout process.</returns>
+             <response code="200">Returns an OK response if the logout is successful.</response>
+             <response code="400">Returns a Bad Request response if the provided email is invalid or if there is a SQL exception.</response>
+             <response code="404">Returns a Not Found response if the result does not exist.</response>
+             <response code="500">Returns an Internal Server Error response if an unexpected error occurs during logout.</response>
+             <example>
+             Sample request:
+            
+                 DELETE /api/authenticatication/logout
+                 {
+                     "Email": "example@example.com"
+                 }
+             
+             </example>
+        </member>
+        <member name="M:FruitStoreWebAPI.Controllers.AuthenticaticationController.SendForgotPasswordEmail(FruitStoreModels.Auth.AddForgotPasswordDetails)">
+             <summary>
+             Sends a forgot password email to the specified email address.
+             </summary>
+             <param name="forgotPasswordDetails">The forgot password details to send the forgot password email to.</param>
+             <returns>Returns a response indicating the result of sending the forgot password email.</returns>
+             <response code="200">Returns a success response if the email was sent successfully.</response>
+             <response code="400">Returns a Bad Request response if the provided email is invalid or if there is a problem with the request.</response>
+             <response code="404">Returns a Not Found response if the email is not found in the system.</response>
+             <response code="500">Returns an Internal server error response if an unexpected error occurs.</response>
+             <response code="503">Returns a Service Unavailable response if the service is temporarily unavailable.</response>
+             <example>
+             Sample request:
+            
+                 POST /api/authenticatication/forgot-password
+                 {
+                     "Email": "example@example.com"
+                 }
+            </example>
+        </member>
+        <member name="M:FruitStoreWebAPI.Controllers.AuthenticaticationController.ResetPassword(FruitStoreModels.Auth.ResetPassword)">
+             <summary>
+             Resets the password for a user.
+             </summary>
+             <remarks>
+             Sample request:
+                 POST : /api/authenticatication/reset-password
+                 {
+                     "Password": "newpassword123",
+                     "UserId": "exampleUserID",
+                     "code": "exampleCode123"
+                 }
+            
+             </remarks>
+             <param name="model">The model containing password, UserId, and code.</param>
+             <returns>Returns a response indicating the result of the password reset process.</returns>
+             <response code="200">Returns a success response if the password is reset successfully.</response>
+             <response code="400">Returns a Bad Request response if the input data is invalid or if there's an SQL exception.</response>
+             <response code="500">Returns an Internal Server Error response if an unexpected error occurs.</response>
+        </member>
+        <member name="M:FruitStoreWebAPI.Controllers.AuthenticaticationController.SendOTPDetails(FruitStoreModels.Auth.AddOTPDetails)">
+             <summary>
+             Sends OTP details to the provided email address.
+             </summary>
+             <remarks>
+             Sample request:
+                 POST : /api/authenticatication/send-OTP-details
+                 {
+                     "Email": "newpassword123@gg.com",
+                     "UserRole": "user"
+                 }
+            
+             </remarks>
+             <param name="OTPDetails">The model containing the email address to send the OTP.</param>
+             <returns>Returns a response indicating the result of sending the OTP.</returns>
+             <response code="200">Returns a success response if the password is reset successfully.</response>
+             <response code="400">Returns a Bad Request response if the input data is invalid</response>
+             <response code="404">Returns a not found if data is not found</response>
+             <response code="500">Internal server error.</response>
+             <response code="503">Returns service unavailabe.</response>
+        </member>
+        <member name="M:FruitStoreWebAPI.Controllers.AuthenticaticationController.ConfirmOTPDetails(FruitStoreModels.Auth.ConfirmOTP)">
+             <summary>
+             Confirms OTP details for the provided email address.
+             </summary>
+             <remarks>
+             Sample request:
+                 POST : /api/authenticatication/confirm-OTP-details
+                 {
+                     "Email": "newpassword123@gg.com",
+                     "OTP": "1234"
+                 }
+            
+             </remarks>
+             <param name="OTPDetails">The model containing the email address to send the OTP.</param>
+             <returns>Returns a response indicating the result of sending the OTP.</returns>
+             <response code="200">Returns a success response if the password is reset successfully.</response>
+             <response code="400">Returns a Bad Request response if the input data is invalid</response>     
+             <response code="500">Internal server error.</response>
+        </member>
+        <member name="T:FruitStoreWebAPI.Controllers.CartController">
+            <summary>
+            Represents a class that handles cart related operations.
+            </summary>
+        </member>
+        <member name="M:FruitStoreWebAPI.Controllers.CartController.#ctor(Microsoft.Extensions.Logging.ILogger{FruitStoreWebAPI.Controllers.CartController},FruitStoreRepositories.Interfaces.ICartDetailsRepository)">
+            <summary>
+            Represents a class that handles cart related operations.
+            </summary>
+        </member>
+        <member name="M:FruitStoreWebAPI.Controllers.CartController.GetProductsCartDetails(System.Int32)">
+            <summary>
+            Retrieves details for all products with total in the cart by user Id.
+            </summary>
+            <remarks>
+            This endpoint retrieves details with total for all products currently in the cart by user Id.
+            </remarks>
+            <param name="userId">The ID of the user whose cart details are to be retrieved.</param>
+            <returns>Returns a response containing details for all products in the cart.</returns>
+            <response code="200">Returns a successful response along with product details.</response>
+            <response code="400">Returns a Bad Request response if the provided user id is invalid</response>
+            <response code="404">Returns a Not Found response if no products are found in the cart.</response>
+            <response code="500">Returns an Internal Server Error response if an unexpected error occurs.</response>
+            <example>
+            Sample request:
+            
+                GET /api/cart/get-products-cart-detail/{userId}
+            
+            Sample response (200 - OK):
+            
+                {
+                    "statusCode": 200,
+                    "message": "Cart details..",
+                    "data": [
+                        {
+                            "cartId": 1,
+                            "productImage": "Product 1",
+                            "productName": 2,
+                            "price": 10.99,
+                            "quantity": 1,
+                            "userId":1
+                        },
+                        {
+                            "subTotal": 2,
+                            "charges": "Product 2",
+                            "total": 1
+                         
+                        }
+                    ]
+                }
+            </example>
+        </member>
+        <member name="M:FruitStoreWebAPI.Controllers.CartController.GetBagCounterDetails(System.Int32)">
+             <summary>
+             Retrieves details for the bag counter associated with a user's cart.
+             </summary>
+             <remarks>
+             This endpoint retrieves details for the bag counter associated with the specified user's cart.
+             </remarks>
+             <param name="userId">The ID of the user whose bag counter details are to be retrieved.</param>
+             <returns>Returns a response containing details for the bag counter.</returns>
+             <response code="200">Returns a successful response along with bag counter details.</response>
+             <response code="404">Returns a not found response.</response>
+             <response code="400">Returns a Bad Request response if the provided user id is invalid</response>
+             <response code="500">Returns an Internal Server Error response if an unexpected error occurs.</response>
+             <example>
+             Sample request:
+             
+                 GET /api/cart/get-bag-counter-details?userId=123
+             
+             Sample response (200 - OK):
+             
+                 {
+                     "statusCode": 200,
+                     "message": "Bag counter details..",
+                     "data": {
+                         "userId": 123,
+                         "totalItems": 5,
+                         "totalPrice": 50.99
+                     }
+                 }
+            
+             </example>
+        </member>
+        <member name="M:FruitStoreWebAPI.Controllers.CartController.DeleteCartItemById(System.Int32)">
+            <summary>
+            Deletes a product from the cart by its Id.
+            </summary>
+            <param name="cartId">The Id of the cart item to delete.</param>
+            <returns>Returns a response indicating the result of the deletion process.</returns>
+            <response code="204">Returns a No Content response if the product is successfully deleted.</response>
+            <response code="400">Returns a Bad Request response if the provided cart Id is invalid or missing.</response>
+            <response code="404">Returns a Not Found response if no cart item with the provided Id is found.</response>
+            <response code="500">Returns an Internal Server Error response if an unexpected error occurs during the deletion process.</response>
+            <example>
+            Sample request:
+            
+                DELETE /api/cart/delete-products/{cartId}
+            
+            Sample response (204 - No Content):
+            
+                No content
+            
+            </example>
+        </member>
+        <member name="M:FruitStoreWebAPI.Controllers.CartController.CreateCartDetails(FruitStoreModels.Cart.AddCartDetails)">
+            <summary>
+            Creates product cart details in the system.
+            </summary>
+            <remarks>
+            This endpoint allows adding new product cart details in the system.
+            </remarks>
+            <param name="cartDetails">The details of the cart to be inserted.</param>
+            <returns>Returns a response indicating the success or failure of the cart insertion</returns>
+            <response code="201">Returns a Created response if the cart details are inserted successfully.</response>
+            <response code="400">Returns a Bad Request response if the provided cart details are invalid or missing.</response>
+            <response code="404">Returns a Not found response if the provided cart details product name are not found.</response>
+            <response code="409">Returns a Conflict response if the product name already exists.</response> // Added 409 Conflict
+            <response code="500">Returns an Internal Server Error response if an unexpected error occurs during insertion or update.</response>
+            <example>
+            Sample request:
+            
+                POST /api//create-cart-details
+                {
+                 
+                    "ProductName": "Product A",
+                    "Price": 10.99,
+                    "Quantity": 100,
+                    "ProductImage": "string",
+                    "UserId": "1",
+                 
+                }
+            </example>
+        </member>
+        <member name="M:FruitStoreWebAPI.Controllers.CartController.UpdateCartDetails(FruitStoreModels.Cart.UpdateCartDetails)">
+            <summary>
+            Updates product cart details in the system.
+            </summary>
+            <remarks>
+            This endpoint allows updating existing product cart details in the system.
+            </remarks>
+            <param name="cartDetails">The details of the cart to be updated.</param>
+            <returns>Returns a response indicating the success or failure of the cart update.</returns>
+            <response code="200">Returns a OK response if the cart details are updated successfully.</response>
+            <response code="400">Returns a Bad Request response if the provided cart details are invalid or missing.</response>
+            <response code="404">Returns a Not Found response if the provided cart details are not found.</response>
+            <response code="409">Returns a Conflict response if there are conflicts with the provided cart details.</response>
+            <response code="500">Returns an Internal Server Error response if an unexpected error occurs during the update.</response>
+            <example>
+            Sample request:
+            
+                PATCH /api/update-cart-details
+                {
+                    "CartId": 1,
+                    "Price": 10.99,
+                    "Quantity": 100,
+                    "UserId": 1,
+                    "SubTotal": 1099.00
+                }
+            </example>
+        </member>
+        <member name="T:FruitStoreWebAPI.Controllers.CategoryController">
+            <summary>
+            Represents a class that handles category related operations.
+            </summary>
+        </member>
+        <member name="M:FruitStoreWebAPI.Controllers.CategoryController.#ctor(Microsoft.Extensions.Logging.ILogger{FruitStoreWebAPI.Controllers.CategoryController},FruitStoreRepositories.Interfaces.ICategoryRepository)">
+            <summary>
+            Represents a class that handles category related operations.
+            </summary>
+        </member>
+        <member name="M:FruitStoreWebAPI.Controllers.CategoryController.GetAllCateGories">
+            <summary>
+            Retrieves details for all categories in the system.
+            </summary>
+            <remarks>
+            This endpoint retrieves details for all categories available in the system.
+            </remarks>
+            <returns>Returns a response containing the list of categories.</returns>
+            <response code="200">Returns a successful response with the list of categories.</response>
+            <response code="500">Returns an Internal server error response if an unexpected error occurs during retrieval.</response>
+            <summary>
+            Sample request:
+                GET /api/category/get-all-categories
+            </summary>   
+        </member>
+        <member name="M:FruitStoreWebAPI.Controllers.CategoryController.GetCategoryWithProductsCounts">
+            <summary>
+            Retrieves details for categories along with the count of products in each category.
+            </summary>
+            <remarks>
+            This endpoint retrieves details for categories along with the count of products in each category.
+            </remarks>
+            <returns>Returns a response containing the list of categories with product counts.</returns>
+            <response code="200">Returns a successful response with the list of categories and their product counts.</response> 
+            <response code="500">Returns an Internal Server Error response if an unexpected error occurs during retrieval.</response>
+            <summary>
+            Sample request:
+                GET /api/category/get-category-with-products-counts
+            </summary>    
+        </member>
+        <member name="M:FruitStoreWebAPI.Controllers.CategoryController.CreateCategory(FruitStoreModels.Category.AddCategoryDetails)">
+            <summary>
+            Creates a new category in the system.
+            </summary>
+            <remarks>
+            This endpoint allows adding a new category to the system.
+            </remarks>
+            <param name="addcategoryDetails">The details of the category to be created.</param>
+            <returns>Returns a response indicating the success or failure of the category creation.</returns>
+            <response code="201">Returns a Created response if the category is created successfully.</response>
+            <response code="400">Returns a Bad Request response if the provided category details are invalid or missing.</response>
+            <response code="409">Returns a conflict.</response>
+            <response code="500">Returns an Internal Server Error response if an unexpected error occurs during creation.</response>
+            <sample-request>
+            POST api/category/create-category
+            Content-Type: application/json
+            
+            {
+              "CategoryName": "New Category",
+              "CategoryDescription": "Description of the new category"
+            }
+            </sample-request>
+        </member>
+        <member name="M:FruitStoreWebAPI.Controllers.CategoryController.DeleteCategoryById(System.Int32)">
+            <summary>
+            Deletes a category by its Id.
+            </summary>
+            <param name="categoryId">The Id of the category to delete.</param>
+            <returns>Returns a response indicating the result of the deletion process.</returns>
+            <response code="204">Returns a No Content response if the category is successfully deleted.</response>
+            <response code="400">Returns a Bad Request response if the provided category Id is invalid or missing.</response>
+            <response code="404">Returns a Not Found response if no category with the provided Id is found.</response>
+            <response code="409">Returns a Conflict response if the category cannot be deleted because it contains products.</response>
+            <response code="500">Returns an Internal Server Error response if an unexpected error occurs during the deletion process.</response>
+            <example>
+            Sample request:
+            
+                DELETE /api/category/delete-category/{categoryId}
+            
+            </example>
+        </member>
+        <member name="T:FruitStoreWebAPI.Controllers.HomeController">
+            <summary>
+            Represents a class that handles home screen operations.
+            </summary>
+        </member>
+        <member name="M:FruitStoreWebAPI.Controllers.HomeController.#ctor(Microsoft.Extensions.Logging.ILogger{FruitStoreWebAPI.Controllers.HomeController},FruitStoreRepositories.Interfaces.IHomeRepository)">
+            <summary>
+            Represents a class that handles home screen operations.
+            </summary>
+        </member>
+        <member name="M:FruitStoreWebAPI.Controllers.HomeController.GetTopProducts(System.String)">
+            <summary>
+            Get Top Products
+            </summary>
+            <remarks>
+            Retrieves the top products based on the specified category.
+            </remarks>
+            <param name="vegOrFruits">Category filter for retrieving top products. Use 'All' for all categories, 'V' for vegetables, and 'F' for fruits.</param>
+            <returns>Returns a list of top products with details.</returns>
+            <response code="200">Returns the list of top products with details.</response>
+            <response code="400">Invalid category value. Please provide a valid category value ('All', 'V', 'F').</response>
+            <response code="404">Returns not found response for top products.</response>
+            <response code="500">Oops! Something went wrong on our end. Please try again later or contact support if the problem persists.</response>
+            <example>
+            Sample request:
+            
+                GET /api/home/top-products?vegOrFruits=All
+            
+            </example>
+        </member>
+        <member name="M:FruitStoreWebAPI.Controllers.HomeController.GetBestSellerProducts">
+            <summary>
+            Get Best Seller Products
+            </summary>
+            <remarks>
+            Retrieves the best seller products based.
+            </remarks>
+            <returns>Returns a list of best seller products with details.</returns>
+            <response code="200">Returns the list of best seller products with details.</response>
+            <response code="500">Oops! Something went wrong on our end. Please try again later or contact support if the problem persists.</response>
+            <example>
+            Sample request:
+            
+                GET /api/home/bestseller-products
+            
+            </example>
+        </member>
+        <member name="T:FruitStoreWebAPI.Controllers.OrderController">
+            <summary>
+            Represents a class that handles order related operations.
+            </summary>
+        </member>
+        <member name="M:FruitStoreWebAPI.Controllers.OrderController.#ctor(Microsoft.Extensions.Logging.ILogger{FruitStoreWebAPI.Controllers.OrderController},FruitStoreRepositories.Interfaces.IPaymentRepository,FruitStoreRepositories.Interfaces.IOrderRepository)">
+            <summary>
+            Represents a class that handles order related operations.
+            </summary>
+        </member>
+        <member name="M:FruitStoreWebAPI.Controllers.OrderController.CreateOrderDetails(FruitStoreModels.Payment.AddOrderDetails)">
+            <summary>
+            Creates order details for a user.
+            </summary>
+            <remarks>
+            This endpoint creates order details for a user by validating the provided order details, including product information, subtotal, charges, total, user ID, and mode of payment.
+            </remarks>
+            <param name="orderDetails">The object containing order details to be created.</param>
+            <returns>Returns a response indicating the status of the order creation process.</returns>
+            <response code="201">Returns a successful response if the order is created successfully.</response>
+            <response code="400">Returns a Bad Request response if any of the provided details are invalid or missing.</response>
+            <response code="500">Returns an Internal Server Error response if an unexpected error occurs during order creation.</response>
+            <example>
+            Sample request:
+            
+                POST /api/order/create-order-details
+                {
+                    "cartDetails": [
+                        {
+                            "productImage": "image_url",
+                            "productName": "Product 1",
+                            "price": 10.99,
+                            "quantity": 2
+                        },
+                        {
+                            "productImage": "image_url",
+                            "productName": "Product 2",
+                            "price": 29.99,
+                            "quantity": 1
+                        }
+                    ],
+                    "subTotal": 50.97,
+                    "charges": 2.00,
+                    "total": 52.97,
+                    "userId": 1,
+                    "modeOfPayment": "Credit Card"
+                }
+            
+            Sample response (201 - Created):
+            
+                {
+                    "statusCode": 201,
+                    "message": "Order created successfully.",
+                    "data": {
+                        "orderId": 123,
+                        "orderDate": "2024-05-13T10:00:00",
+                        "subTotal": 50.97,
+                        "charges": 2.00,
+                        "total": 52.97
+                    }
+                }
+            </example>
+        </member>
+        <member name="M:FruitStoreWebAPI.Controllers.OrderController.CompleteOrderProcess(FruitStoreModels.Order.CompleteOrderProcess)">
+            <summary>
+            Completes the order processing for a user.
+            </summary>
+            <remarks>
+            This endpoint completes the order processing for a user by validating the order details, payment information, and user details.
+            </remarks>
+            <param name="completeOrderProcess">The object containing order processing details.</param>
+            <returns>Returns a response indicating the status of the order processing.</returns>
+            <response code="200">Returns a successful response if the order processing is completed successfully.</response>
+            <response code="400">Returns a Bad Request response if any of the provided details are invalid or missing.</response>
+            <response code="500">Returns an Internal Server Error response if an unexpected error occurs during order processing.</response>
+            <example>
+            Sample request:
+            
+                POST /api/order/complete-order-process
+                {
+                    "orderId": 1,
+                    "razorpayOrderId": "order123",
+                    "paymentId": "payment123",
+                    "signature": "signature123",
+                    "modeOfPayment": "Credit Card",
+                    "userId": 1
+                }
+            
+            Sample response (200 - OK):
+            
+                {
+                    "statusCode": 200,
+                    "message": "Order and payment done successfully."
+                }
+            </example>
+        </member>
+        <member name="M:FruitStoreWebAPI.Controllers.OrderController.GetOrderDetailsByUserId(System.Int32)">
+            <summary>
+            Retrieves order details for a specific user by their user Id.
+            </summary>
+            <remarks>
+            This endpoint retrieves order details for a user identified by their user Id.
+            </remarks>
+            <param name="userId">The ID of the user whose order details are to be retrieved.</param>
+            <returns>Returns a response containing order details for the specified user.</returns>
+            <response code="200">Returns a successful response along with order details.</response>
+            <response code="400">Returns a Bad Request response if the provided user id is invalid.</response>
+            <response code="500">Returns an Internal Server Error response if an unexpected error occurs.</response>
+            <example>
+            Sample request:
+            
+                GET /api/order/get-order-details/{userId}
+            
+            Sample response (200 - OK):
+            
+                {
+                    "statusCode": 200,
+                    "message": "Order details..",
+                    "data": {
+                        "orderId": 1,
+                        "orderDate": "2024-05-13T10:00:00",
+                        "totalAmount": 50.99,
+                        "items": [
+                            {
+                                "itemId": 1,
+                                "itemName": "Product 1",
+                                "quantity": 2,
+                                "price": 10.99
+                            },
+                            {
+                                "itemId": 2,
+                                "itemName": "Product 2",
+                                "quantity": 1,
+                                "price": 29.99
+                            }
+                        ]
+                    }
+                }
+            </example>
+        </member>
+        <member name="M:FruitStoreWebAPI.Controllers.OrderController.UpdateOrderStatusDetails(FruitStoreModels.Order.UpdateOrderStatus)">
+            <summary>
+            Updates the status details of an order.
+            </summary>
+            <remarks>
+            This endpoint updates the status details of an order.
+            </remarks>
+            <param name="updateStatus">The object containing the updated order status details.</param>
+            <returns>Returns a response indicating the success or failure of the operation.</returns>
+            <response code="200">Returns a successful response if the order status is updated successfully.</response>
+            <response code="400">Returns a Bad Request response if the provided order status or user ID is invalid.</response>
+            <response code="404">Returns a Not Found response if no orders status are found for the user.</response>
+            <response code="500">Returns an Internal Server Error response if an unexpected error occurs.</response>
+            <example>
+            Sample request:
+            
+                POST /api/order/update-order-status
+                {
+                    "orderId": 1,
+                    "userId": 123,
+                    "orderStatus": "Shipped"
+                }
+            
+            Sample response (200 - OK):
+            
+                {
+                    "statusCode": 200,
+                    "message": "Order status updated successfully."
+                }
+            </example>
+        </member>
+        <member name="T:FruitStoreWebAPI.Controllers.ProductsController">
+            <summary>
+            Represents a class that handles product related operations.
+            </summary>
+        </member>
+        <member name="M:FruitStoreWebAPI.Controllers.ProductsController.#ctor(Microsoft.Extensions.Logging.ILogger{FruitStoreWebAPI.Controllers.ProductsController},FruitStoreRepositories.Interfaces.IProductsRepository)">
+            <summary>
+            Represents a class that handles product related operations.
+            </summary>
+        </member>
+        <member name="M:FruitStoreWebAPI.Controllers.ProductsController.GetAllProducts">
+            <summary>
+            Retrieves details for all products.
+            </summary>
+            <remarks>
+            This endpoint retrieves details for all products available in the system.
+            </remarks>
+            <returns>Returns a response containing details for all products.</returns>
+            <response code="200">Returns a successful response along with product details.</response>
+            <response code="500">Returns an Internal Server Error response if an unexpected error occurs.</response>
+            <example>
+            Sample request:
+            
+                GET /api/products/get-all-products
+            
+            </example>
+        </member>
+        <member name="M:FruitStoreWebAPI.Controllers.ProductsController.CreateUpdateProducts(FruitStoreModels.Products.AddUpdateProductsDetails)">
+            <summary>
+            Creates or updates products in the system.
+            </summary>
+            <remarks>
+            This endpoint allows adding new products or updating existing ones in the system.
+            </remarks>
+            <param name="addProductsDetails">The details of the products to be inserted or updated.</param>
+            <returns>Returns a response indicating the success or failure of the product insertion or update.</returns>
+            <response code="201">Returns a Created response if the products are inserted successfully.</response>
+            <response code="200">Returns an OK response if the products are updated successfully.</response>
+            <response code="400">Returns a Bad Request response if the provided product details are invalid or missing.</response>
+            <response code="409">Returns a conflict if alraedy exits.</response>
+            <response code="500">Returns an Internal Server Error response if an unexpected error occurs during insertion or update.</response>
+            <example>
+            Sample request:
+            
+                POST /api/create-update-products
+                {
+                    "CategoryId": 1,
+                    "ProductName": "Product A",
+                    "Price": 10.99,
+                    "StockQuantity": 100,
+                    "ImageData": "base64_encoded_image_data",
+                    "isInsertOrUpdateAction": "I"
+                }
+            </example>
+        </member>
+        <member name="M:FruitStoreWebAPI.Controllers.ProductsController.DeleteProductById(System.Int32)">
+            <summary>
+            Deletes a product by its Id.
+            </summary>
+            <param name="productId">The Id of the product to delete.</param>
+            <returns>Returns a response indicating the result of the deletion process.</returns>
+            <response code="204">Returns a No Content response if the product is successfully deleted.</response>
+            <response code="400">Returns a Bad Request response if the provided product Id is invalid or missing.</response>
+            <response code="404">Returns a Not Found response if no product with the provided Id is found.</response>
+            <response code="500">Returns an Internal Server Error response if an unexpected error occurs during the deletion process.</response>
+            <example>
+            Sample request:
+            
+                DELETE /api/products/delete-products/{productId}
+            
+            </example>
+        </member>
+        <member name="T:FruitStoreWebAPI.Controllers.ShopController">
+            <summary>
+            Represents a class that handles shop operations.
+            </summary>
+        </member>
+        <member name="M:FruitStoreWebAPI.Controllers.ShopController.#ctor(Microsoft.Extensions.Logging.ILogger{FruitStoreWebAPI.Controllers.ShopController},FruitStoreRepositories.Interfaces.IShopRepository)">
+            <summary>
+            Represents a class that handles shop operations.
+            </summary>
+        </member>
+        <member name="M:FruitStoreWebAPI.Controllers.ShopController.GetAllShopDetails(FruitStoreModels.Shop.ShopFilterCriterio)">
+            <summary>
+            Retrieves details for all shop details.
+            </summary>
+            <remarks>
+            This endpoint retrieves all shop details for all products available in the system.
+            </remarks>
+            <returns>Returns a response containing details for shop details.</returns>
+            <response code="200">Returns a successful response along with all shop product details.</response>    
+            <response code="400">Returns a 400 bad request</response>  
+            <response code="500">Returns an Internal Server Error response if an unexpected error occurs.</response>
+            <example>
+            Sample request:
+            
+                GET /api/shop/get-all-shop-details
+            
+            </example>
+        </member>
+        <member name="T:FruitStoreWebAPI.Controllers.ShopDetailsController">
+            <summary>
+            Represents a class that handles shop details operations.
+            </summary>
+        </member>
+        <member name="M:FruitStoreWebAPI.Controllers.ShopDetailsController.#ctor(Microsoft.Extensions.Logging.ILogger{FruitStoreWebAPI.Controllers.ShopDetailsController},FruitStoreRepositories.Interfaces.IShopDetailsRepository)">
+            <summary>
+            Represents a class that handles shop details operations.
+            </summary>
+        </member>
+        <member name="M:FruitStoreWebAPI.Controllers.ShopDetailsController.PostProductRating(FruitStoreModels.Products.AddProductRatings)">
+             <summary>
+             Adds a new product rating.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/shop/productratings
+                 {
+                    "productId": 1,
+                    "userId": 123,
+                    "review": "This is a great product!",
+                    "rating": 5
+                 }
+            
+             </remarks>
+             <param name="addProductsRating">Object containing product rating details.</param>
+             <returns>The newly added product rating.</returns>
+             <response code="201">Returns when the product rating is added successfully.</response>
+             <response code="400">Returns when there's a validation error in the request payload.</response>
+             <response code="404">Returns when a required resource (e.g., user session, product) is not found.</response>
+             <response code="500">Returns when there's a server error during the insertion process.</response>
+        </member>
+        <member name="M:FruitStoreWebAPI.Controllers.ShopDetailsController.GetProductsAndRating(System.Int32)">
+             <summary>
+             Retrieves details for a specific product including its rating.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/shop/products-and-rating/1
+                 {}
+             </remarks>
+             <param name="productId">The ID of the product for which details are to be retrieved.</param>
+             <response code="200">Returns an OK response with product and rating details if retrieval is successful.</response>
+             <response code="400">Returns a Bad Request response for validation errors or invalid data.</response>
+             <response code="404">Returns a Not Found response if the specified product or rating details are not found.</response>
+             <response code="500">Returns an Internal Server Error response if an unexpected error occurs during retrieval.</response>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:FruitStoreWebAPI.Controllers.ShopDetailsController.CheckProductPurchasing(System.Int32,System.Int32)" -->
+    </members>
+</doc>

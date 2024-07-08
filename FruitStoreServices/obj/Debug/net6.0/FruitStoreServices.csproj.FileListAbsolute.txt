@@ -1,0 +1,4 @@
+D:\27-11-2023\FruitstoreFullStack\FruitStoreWebAPI\FruitStoreServices\obj\Debug\net6.0\FruitStoreServices.GeneratedMSBuildEditorConfig.editorconfig
+D:\27-11-2023\FruitstoreFullStack\FruitStoreWebAPI\FruitStoreServices\obj\Debug\net6.0\FruitStoreServices.AssemblyInfoInputs.cache
+D:\27-11-2023\FruitstoreFullStack\FruitStoreWebAPI\FruitStoreServices\obj\Debug\net6.0\FruitStoreServices.AssemblyInfo.cs
+D:\27-11-2023\FruitstoreFullStack\FruitStoreWebAPI\FruitStoreServices\obj\Debug\net6.0\FruitStoreServices.csproj.CoreCompileInputs.cache

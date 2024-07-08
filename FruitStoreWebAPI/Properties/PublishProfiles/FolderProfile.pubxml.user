@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>D:\FruitApp</_PublishTargetUrl>
+    <History>True|2024-06-11T09:42:14.2673342Z;True|2024-06-11T15:00:49.4975912+05:30;True|2024-06-11T14:39:51.0195735+05:30;True|2024-06-11T14:37:35.8575916+05:30;True|2024-06-11T14:23:55.1960691+05:30;True|2024-06-11T14:20:38.0716464+05:30;True|2024-06-11T14:15:59.8987629+05:30;True|2024-06-11T14:13:02.4445299+05:30;</History>
+    <LastFailureDetails />
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Server=SANDY\\MSSQLSERVER02%3bDatabase=22-05-2024%3bTrusted_Connection=True%3bTrustServerCertificate=Yes%3bIntegrated Security = true%3b</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>
